@@ -1,0 +1,5 @@
+[tool.pyrefly]
+search-paths = ["canecare-backend"]
+
+[tool.pyright]
+extraPaths = ["canecare-backend"]
