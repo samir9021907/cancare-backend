@@ -13,3 +13,4 @@ services:
         value: 60
       - key: ALLOWED_ORIGINS
         value: "*"
+
