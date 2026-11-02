@@ -1,0 +1,27 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Environment settings
+.env
+
+# Uploaded images
+uploads/*
+!uploads/.gitkeep
+
+# Models folder
+models/*
+!models/.gitkeep
+
+# SQLite database
+*.db
+*.sqlite3
+
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
