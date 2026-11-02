@@ -1,0 +1,439 @@
+{
+  "notice": "All advisory content is provided for informational and educational purposes and must be reviewed by an accredited agronomist or agricultural extension specialist.",
+  "diseases": {
+    "healthy": {
+      "en": {
+        "name": "Healthy Sugarcane",
+        "short_description": "Clean, vigorous sugarcane leaves with no visible signs of infection.",
+        "symptoms": [
+          "Uniform lush green leaf color across foliage",
+          "Leaves are firm and upright with no spots or lesions",
+          "Healthy midrib without discoloration or red streaks"
+        ],
+        "causes": [
+          "Optimal soil nutrition and balanced irrigation",
+          "Proper field hygiene and weed management",
+          "Use of certified disease-free seed cane"
+        ],
+        "treatment": [
+          "No curative treatment needed",
+          "Maintain balanced N-P-K nutrient management",
+          "Continue routine field scouting"
+        ],
+        "prevention": [
+          "Use certified healthy seed canes for future planting",
+          "Ensure adequate field drainage during heavy rains",
+          "Practice crop rotation where applicable"
+        ],
+        "disclaimer": "Continue regular field inspections and adhere to recommended package of practices."
+      },
+      "mr": {
+        "name": "निरोगी ऊस (Healthy)",
+        "short_description": "कोणत्याही रोगाची लक्षणे नसलेली निरोगी आणि हिरवीगार उसाची पाने.",
+        "symptoms": [
+          "पानांचा रंग एकसारखा गर्द हिरवा",
+          "पानांवर कोणतेही डाग, चट्टे किंवा वाळलेले भाग नाहीत",
+          "पानाचा मध्यशीर स्वच्छ आणि निरोगी"
+        ],
+        "causes": [
+          "योग्य सेंद्रिय व रासायनिक खतांचे व्यवस्थापन",
+          "वेळेवर पाणीपुरवठा आणि शेताची योग्य निगा",
+          "निरोगी बेण्याचा वापर"
+        ],
+        "treatment": [
+          "कोणत्याही उपचाराची आवश्यकता नाही",
+          "पिकाचे नियमित निरीक्षण चालू ठेवावे",
+          "संतुलित खतांचे व्यवस्थापन ठेवावे"
+        ],
+        "prevention": [
+          "पुढील लागवडीसाठी केवळ प्रमाणित निरोगी बेणे वापरावे",
+          "शेतात पाण्याचा निचरा योग्य राहील याची काळजी घ्यावी",
+          "स्थानिक कृषी तज्ञांच्या सल्ल्याने पीक व्यवस्थापन करावे"
+        ],
+        "disclaimer": "ही माहिती मार्गदर्शनासाठी आहे. पिकाची वेळोवेळी पाहणी करावी."
+      },
+      "hi": {
+        "name": "स्वस्थ गन्ना (Healthy)",
+        "short_description": "बिना किसी रोग के स्वस्थ, हरी-भरी और चमकदार गन्ने की पत्तियां।",
+        "symptoms": [
+          "पत्तियों का रंग समान रूप से गहरा हरा",
+          "पत्तियों पर किसी भी प्रकार के धब्बे या चकत्ते नहीं",
+          "पत्ती की मुख्य शिरा (मिडरिब) पूरी तरह साफ और स्वस्थ"
+        ],
+        "causes": [
+          "संतुलित पोषण और उचित सिंचाई प्रबंधन",
+          "खेत की स्वच्छता और समय पर निराई-गुड़ाई",
+          "प्रमाणित रोगमुक्त बीज गन्ने का उपयोग"
+        ],
+        "treatment": [
+          "किसी उपचार की आवश्यकता नहीं है",
+          "संतुलित खाद और पानी की व्यवस्था जारी रखें",
+          "नियमित रूप से खेत का निरीक्षण करते रहें"
+        ],
+        "prevention": [
+          "आगामी बुवाई के लिए हमेशा स्वस्थ एवं प्रमाणित बीज का चयन करें",
+          "खेत में जलभराव न होने दें, उचित जल निकासी रखें",
+          "उचित फसल चक्र अपनाएं"
+        ],
+        "disclaimer": "यह जानकारी केवल सलाहकारी है। समय-समय पर खेत की निगरानी रखें।"
+      }
+    },
+    "red_rot": {
+      "en": {
+        "name": "Red Rot (Colletotrichum falcatum)",
+        "short_description": "Severe fungal disease causing reddening of midrib, leaf withering, and internal cane decay.",
+        "symptoms": [
+          "Dark red lesions on the midrib with small white centers",
+          "Third or fourth leaf from top shows yellowing and drooping",
+          "Pith turns dull red with distinctive white cross bands",
+          "Alcoholic or acidic smell from split canes"
+        ],
+        "causes": [
+          "Fungal pathogen Colletotrichum falcatum",
+          "Use of infected seed canes (sett-borne)",
+          "Waterlogging and poor field drainage spreading spores",
+          "Injuries caused by cane borers or mechanical tools"
+        ],
+        "treatment": [
+          "Immediately rogue out and destroy severely infected clumps with roots outside the field",
+          "Avoid using ratoon crops from infected plots",
+          "Avoid flooding irrigation between infected and healthy furrows",
+          "Consult local Krishi Vigyan Kendra (KVK) or Agriculture Officer for approved management measures"
+        ],
+        "prevention": [
+          "Plant only certified disease-free, tissue-cultured, or heat-treated seed setts",
+          "Select resistant or tolerant sugarcane varieties recommended for your region",
+          "Practice crop rotation with green manure or non-host crops (e.g., paddy or sunn hemp)",
+          "Maintain clean channels to prevent stagnant water"
+        ],
+        "disclaimer": "Red rot is a destructive disease. Immediately seek advice from your local Krishi Vigyan Kendra or Agriculture Officer."
+      },
+      "mr": {
+        "name": "तांबोरा / लाल कूज (Red Rot)",
+        "short_description": "उसाचा अत्यंत घातक बुरशीजन्य रोग, ज्यामध्ये मध्यशिरेवर लाल डाग पडतात आणि कांड्या आतून सडतात.",
+        "symptoms": [
+          "पानाच्या मध्यशिरेवर लांबट लाल चट्टे आणि मध्यभागी पांढरा पट्टा दिसतो",
+          "उसाची वरची पाने पिवळी पडून कोमेजू लागतात",
+          "ऊस उभा चिरल्यास आतील गर लाल झालेला दिसतो आणि त्यावर आडवे पांढरे पट्टे दिसतात",
+          "उसाला आंबट किंवा मद्यासारखा वास येतो"
+        ],
+        "causes": [
+          "कॉलेटोट्रायकम फाल्केटम (Colletotrichum falcatum) बुरशी",
+          "रोगट बेण्याचा वापर",
+          "शेतात पाणी साचून राहणे आणि दमट हवामान",
+          "किडींमुळे किंवा अवजारांमुळे उसाला झालेली इजा"
+        ],
+        "treatment": [
+          "रोगट उसाची बेटे मुळासकट उपटून शेताबाहेर जाळून नष्ट करावीत",
+          "बाधित क्षेत्रातील उसाचा खोडवा घेणे टाळावे",
+          "बाधित उसाचे पाणी निरोगी पिकात जाणार नाही याची काळजी घ्यावी",
+          "नजीकच्या कृषी विज्ञान केंद्र (KVK) किंवा कृषी अधिकाऱ्यांचा त्वरित सल्ला घ्यावा"
+        ],
+        "prevention": [
+          "नेहमी रोगप्रतिकारक वाणांची निवड करावी",
+          "प्रमाणित आणि उष्ण जलप्रक्रिया केलेले निरोगी बेणे वापरावे",
+          "शेतात पाण्याचा चांगला निचरा ठेवावा",
+          "ताग किंवा धैंचा यांसारख्या पिकांसोबत फेरपालट करावी"
+        ],
+        "disclaimer": "लाल कूज हा गंभीर रोग आहे. त्वरित स्थानिक कृषी विज्ञान केंद्र किंवा कृषी अधिकाऱ्यांशी संपर्क साधावा."
+      },
+      "hi": {
+        "name": "लाल सड़न / रेड रॉट (Red Rot)",
+        "short_description": "गन्ने का विनाशकारी फफूंद जनित रोग जिससे पत्ती की मध्य शिरा लाल होती है और अंदर से तना सड़ जाता है।",
+        "symptoms": [
+          "पत्ती की मुख्य शिरा पर गहरे लाल धब्बे जिनके बीच में सफेद धब्बे होते हैं",
+          "शीर्ष की तीसरी-चौथी पत्तियां पीली पड़कर सूखने लगती हैं",
+          "गन्ने को फाड़कर देखने पर अंदर का गूदा लाल दिखता है जिस पर सफेद आड़ी धारियां होती हैं",
+          "गन्ने से सिरके या शराब जैसी खट्टी गंध आती है"
+        ],
+        "causes": [
+          "कोलेटोट्राइकम फाल्केटम (Colletotrichum falcatum) नामक फफूंद",
+          "संक्रमित बीज गन्ने का प्रयोग",
+          "खेत में जलभराव और अत्यधिक आर्द्रता",
+          "कीटों या कृषि उपकरणों द्वारा गन्ने पर लगे घाव"
+        ],
+        "treatment": [
+          "संक्रमित पौधों को जड़ों सहित उखाड़कर खेत से बाहर जला दें",
+          "रोगग्रस्त खेत में पेड़ी (रतून) फसल न लें",
+          "संक्रमित खेत का पानी स्वस्थ खेत में न जाने दें",
+          "उचित सलाह के लिए तुरंत नजदीकी कृषि विज्ञान केंद्र (KVK) या कृषि अधिकारी से संपर्क करें"
+        ],
+        "prevention": [
+          "रोग प्रतिरोधी किस्मों की ही बुवाई करें",
+          "उपचारित एवं प्रमाणित रोगमुक्त बीज गन्ने का ही उपयोग करें",
+          "खेत में जल निकासी की उत्तम व्यवस्था रखें",
+          "फसल चक्र में हरी खाद (सनई/ढैंचा) का प्रयोग करें"
+        ],
+        "disclaimer": "रेड रॉट अत्यधिक हानिकारक रोग है। सही उपचार के लिए तुरंत अपने नजदीकी कृषि वैज्ञानिक से सलाह लें।"
+      }
+    },
+    "rust": {
+      "en": {
+        "name": "Sugarcane Rust (Puccinia melanocephala)",
+        "short_description": "Fungal foliar disease producing orange to reddish-brown pustules on leaves.",
+        "symptoms": [
+          "Small elongated yellowish spots on both surfaces of the leaf",
+          "Spots turn orange-brown to reddish-brown pustules (uredinia)",
+          "Severely infected leaves dry out prematurely with a burnt appearance",
+          "Reduced photosynthetic area leading to stunted stalk growth"
+        ],
+        "causes": [
+          "Fungus Puccinia melanocephala or Puccinia kuehnii",
+          "Cool nights followed by warm humid days (high dew conditions)",
+          "Airborne fungal spores carried by wind currents",
+          "Planting highly susceptible sugarcane clones"
+        ],
+        "treatment": [
+          "Remove and safely compost or burn dried lower leaves to improve air circulation",
+          "Avoid excessive nitrogen fertilization which increases leaf succulence",
+          "Ensure balanced potassic nutrition to build natural disease resistance",
+          "Consult local agricultural extension center for suitable regional recommendations"
+        ],
+        "prevention": [
+          "Cultivate rust-resistant sugarcane varieties",
+          "Maintain optimal spacing between cane rows for proper sunlight and aeration",
+          "Avoid late planting in rust-prone ecological zones",
+          "Regular field scouting during cool, humid spells"
+        ],
+        "disclaimer": "Ensure correct diagnosis and follow regional recommendations from your local agricultural officer."
+      },
+      "mr": {
+        "name": "तांबेरा रोग (Sugarcane Rust)",
+        "short_description": "पानांवर तांबूस-तपकिरी रंगाचे फोड येणारा बुरशीजन्य रोग, ज्यामुळे पाने करपतात.",
+        "symptoms": [
+          "पानांच्या दोन्ही बाजूंवर लहान पिवळसर लांबट ठिपके दिसतात",
+          "कालांतराने हे ठिपके तांबूस-तपकिरी रंगाच्या फोडांमध्ये रूपांतरित होतात",
+          "तीव्र प्रादुर्भावात पाने करपून जळाल्यासारखी दिसतात",
+          "प्रकाशसंश्लेषण कमी होऊन उसाची वाढ खुंटते"
+        ],
+        "causes": [
+          "पक्सिनिया (Puccinia) वंशातील बुरशी",
+          "थंड रात्री आणि दमट उष्ण दिवस (दव पडण्याचे प्रमाण जास्त)",
+          "वाऱ्याद्वारे बुरशीच्या बीजाणूंचा प्रसार",
+          "संवेदनशील वाणांची लागवड"
+        ],
+        "treatment": [
+          "खालची वाळलेली आणि रोगट पाने काढून टाकावीत जेणेकरून हवा खेळती राहील",
+          "नत्राचा (युरिया) अतिरेकी वापर टाळावा",
+          "पिकाची प्रतिकारशक्ती वाढवण्यासाठी पालाश (पोटॅश) खताचा संतुलित वापर करावा",
+          "अधिक माहितीसाठी स्थानिक कृषी विज्ञान केंद्राशी संपर्क साधावा"
+        ],
+        "prevention": [
+          "तांबेरा प्रतिकारक उसाच्या वाणांची निवड करावी",
+          "उसाच्या दोन ओळींमध्ये योग्य अंतर ठेवावे जेणेकरून शेतात पुरेसा सूर्यप्रकाश मिळेल",
+          "रोगट बेण्याचा वापर टाळावा",
+          "हवामानातील बदलांवर लक्ष ठेवून वेळेवर शेताची पाहणी करावी"
+        ],
+        "disclaimer": "रोग नियंत्रणासाठी स्थानिक कृषी अधिकारी किंवा कृषी केंद्राचा सल्ला अवश्य घ्या."
+      },
+      "hi": {
+        "name": "गेरुई / रस्ट रोग (Sugarcane Rust)",
+        "short_description": "फफूंद जनित रोग जिससे पत्तियों पर नारंगी-भूरे रंग के दानेदार उभार बन जाते हैं।",
+        "symptoms": [
+          "पत्तियों की दोनों सतहों पर छोटे, पीले और लंबे धब्बे उभरना",
+          "धब्बों का बाद में नारंगी-भूरे या ईंट जैसे लाल रंग में बदलना",
+          "गंभीर स्थिति में पत्तियां झुलसी हुई दिखाई देती हैं और समय से पहले सूख जाती हैं",
+          "पौधे का विकास धीमा हो जाता है"
+        ],
+        "causes": [
+          "पक्सिनिया (Puccinia melanocephala) फफूंद",
+          "हवा में अत्यधिक नमी और ओस का मौसम",
+          "हवा के झोंकों द्वारा फफूंद बीजाणुओं का तेजी से फैलना",
+          "अत्यधिक संवेदनशील प्रजातियों की खेती"
+        ],
+        "treatment": [
+          "हवा का संचार बढ़ाने के लिए निचली सूखी पत्तियों को हटा दें",
+          "नाइट्रोजन (यूरिया) का अत्यधिक प्रयोग न करें",
+          "पौधे की रोग प्रतिरोधक क्षमता बढ़ाने हेतु पोटाश का संतुलित प्रयोग करें",
+          "स्थानीय कृषि विज्ञान केंद्र से संपर्क कर उपयुक्त मार्गदर्शन लें"
+        ],
+        "prevention": [
+          "रोगरोधी किस्मों की बुवाई को प्राथमिकता दें",
+          "बुवाई के समय कतार से कतार की उचित दूरी रखें ताकि धूप और हवा सुलभ हो",
+          "नियमित रूप से पत्तियों का मुआयना करें",
+          "संतुलित उर्वरकों का ही प्रयोग करें"
+        ],
+        "disclaimer": "रोकथाम के सटीक उपायों हेतु अपने नजदीकी कृषि वैज्ञानिक अथवा कृषि रक्षा अधिकारी से सलाह लें।"
+      }
+    },
+    "yellow_leaf": {
+      "en": {
+        "name": "Sugarcane Yellow Leaf Disease (SCYLD)",
+        "short_description": "Viral/phytoplasma condition causing bright yellowing of the midrib on mature leaves.",
+        "symptoms": [
+          "Prominent bright yellow discoloration of the midrib on the 3rd to 6th leaves",
+          "Yellowing spreads from the midrib outwards into the leaf blade",
+          "Later stage shows necrosis from leaf tip downwards and reddish tint",
+          "Shortened internodes and clustering of leaves at the top"
+        ],
+        "causes": [
+          "Sugarcane Yellow Leaf Virus (SCYLV) and phytoplasma",
+          "Transmission primarily through sugarcane aphid (Melanaphis sacchari)",
+          "Using infected seed cane for multiple vegetative cycles",
+          "Nutrient stress accelerating viral expression"
+        ],
+        "treatment": [
+          "Rogue out and destroy clearly symptomatic, severely stunted plants",
+          "Control sugarcane aphid populations through field sanitation and recommended eco-friendly practices",
+          "Ensure adequate irrigation and balanced nutrition to reduce stress on plants",
+          "Consult local Krishi Vigyan Kendra (KVK) for integrated management strategies"
+        ],
+        "prevention": [
+          "Plant exclusively virus-indexed, certified tissue-cultured plantlets",
+          "Do not take ratoon crops from fields exhibiting severe yellow leaf symptoms",
+          "Monitor aphid vectors regularly during warm seasons",
+          "Adopt resistant or tolerant cane varieties"
+        ],
+        "disclaimer": "Early detection and certified clean seed material are key. Consult agricultural extension officers."
+      },
+      "mr": {
+        "name": "पिवळा पान रोग (Yellow Leaf Disease)",
+        "short_description": "विषाणूमुळे होणारा रोग, ज्यामध्ये पानांची मध्यशीर ठळक पिवळी पडते आणि वाढ खुंटते.",
+        "symptoms": [
+          "वरच्या ३ ते ६ व्या पानांच्या मध्यशिरेवर ठळक पिवळा रंग दिसू लागतो",
+          "हा पिवळेपणा शिरेतून संपूर्ण पानाच्या भागावर पसरतो",
+          "पानाच्या टोकाकडून सुकणे आणि कधीकधी पानांवर तांबूस झाक येणे",
+          "कांड्यांची लांबी कमी होणे आणि उसाची वाढ खुंटणे"
+        ],
+        "causes": [
+          "शुगरकेन यलो लीफ व्हायरस (SCYLV)",
+          "ऊस मावा (Aphid) किडीद्वारे विषाणूचा एका झाडावरून दुसऱ्या झाडावर प्रसार",
+          "बाधित बेण्याचा वारंवार पुनर्वापर",
+          "पाण्याचा किंवा खतांचा ताण"
+        ],
+        "treatment": [
+          "तीव्र लक्षणे असलेली रोगट झाडे उपटून नष्ट करावीत",
+          "मावा किडीचा प्रादुर्भाव रोखण्यासाठी योग्य कीड नियंत्रण उपाय करावेत",
+          "पिकाला वेळेवर पाणी व सूक्ष्म अन्नद्रव्ये देऊन पिकाचा ताण कमी करावा",
+          "अधिक मार्गदर्शनासाठी कृषी विज्ञान केंद्रातील शास्त्रज्ञांचा सल्ला घ्यावा"
+        ],
+        "prevention": [
+          "उती संवर्धित (Tissue Culture) अथवा प्रमाणित निरोगी बेणे वापरावे",
+          "रोगट शेतातील बेणे कधीही नवीन लागवडीसाठी वापरू नये",
+          "मावा किडीचे वेळेवर नियंत्रण ठेवावे",
+          "रोगप्रतिकारक वाणांची लागवड करावी"
+        ],
+        "disclaimer": "रोग नियंत्रणासाठी स्थानिक कृषी अधिकारी किंवा कृषी केंद्राचा सल्ला अवश्य घ्या."
+      },
+      "hi": {
+        "name": "पीली पत्ती रोग (Yellow Leaf Disease)",
+        "short_description": "विषाणुजनित रोग जिसमें पत्ती की मुख्य शिरा चमकीली पीली हो जाती है और पौधे की बढ़वार रुक जाती है।",
+        "symptoms": [
+          "ऊपरी तीसरी से छठी पत्ती की मध्य शिरा का चमकीला पीला पड़ना",
+          "पीलापन मध्य शिरा से पूरी पत्ती की ओर फैलना",
+          "पत्ती के ऊपरी सिरे से सूखना तथा लाल रंग की आभा दिखाई देना",
+          "पोरियों की लंबाई छोटी हो जाना और ऊपर पत्तियों का गुच्छा बनना"
+        ],
+        "causes": [
+          "शुगरकेन येलो लीफ वायरस (SCYLV)",
+          "माहू / एफिड (Melanaphis sacchari) कीट द्वारा वायरस का प्रसार",
+          "संक्रमित बीज गन्ने का लगातार उपयोग",
+          "पौधों में पोषण व नमी का तनाव"
+        ],
+        "treatment": [
+          "अत्यधिक प्रभावित और बौने पौधों को उखाड़कर नष्ट करें",
+          "माहू (एफिड) कीट के नियंत्रण हेतु उचित व अनुशंसित कीटनाशक/जैविक उपाय करें",
+          "पौधों को तनावमुक्त रखने हेतु पर्याप्त सिंचाई और संतुलित पोषण दें",
+          "विस्तृत उपचार हेतु नजदीकी कृषि विज्ञान केंद्र से संपर्क करें"
+        ],
+        "prevention": [
+          "टिशू कल्चर (ऊतक संवर्धन) से तैयार प्रमाणित रोगमुक्त बीज का ही उपयोग करें",
+          "संक्रमित खेत की पेड़ी न रखें और न ही उसका बीज बनाएं",
+          "माहू कीट पर नियमित नजर रखें",
+          "सहनशील प्रजातियों का चयन करें"
+        ],
+        "disclaimer": "स्वस्थ बीज और समय पर कीट नियंत्रण सबसे महत्वपूर्ण उपाय हैं। कृषि विशेषज्ञ की सलाह लें।"
+      }
+    },
+    "mosaic": {
+      "en": {
+        "name": "Sugarcane Mosaic Virus (SCMV)",
+        "short_description": "Viral disease causing mottled, patchy green and pale yellowish patterns on young leaves.",
+        "symptoms": [
+          "Mottled appearance with contrasting dark green and light green/yellowish patches",
+          "Symptoms are most prominent on the basal portion of young expanding leaves",
+          "Affected plants may show shortened stalks and stunted vigor",
+          "In severe cases, chlorotic streaks may turn into leaf tissue necrosis"
+        ],
+        "causes": [
+          "Sugarcane Mosaic Virus (SCMV) or Sorghum Mosaic Virus (SrMV)",
+          "Transmitted in non-persistent manner by aphids (e.g., Rhopalosiphum maidis)",
+          "Propagation through infected vegetative seed setts",
+          "Presence of alternate host grasses and weeds around the field border"
+        ],
+        "treatment": [
+          "Systematically rogue out infected young plants in the early vegetative stage",
+          "Maintain effective weed management around field edges to eliminate alternate weed hosts",
+          "Avoid using diseased cane crops for further planting or ratoon cycles",
+          "Contact local agriculture development officers or KVK for integrated pest and disease protocol"
+        ],
+        "prevention": [
+          "Plant mosaic-tolerant or immune sugarcane varieties",
+          "Use only certified, heat-treated or tissue-cultured disease-free seed canes",
+          "Control aphid populations that transmit the virus",
+          "Disinfect harvesting cutting tools between fields"
+        ],
+        "disclaimer": "Viral diseases cannot be cured with chemical sprays once inside the plant. Roguing and clean seed are essential."
+      },
+      "mr": {
+        "name": "मोझॅक / केवडा रोग (Sugarcane Mosaic)",
+        "short_description": "विषाणूमुळे पानांवर गर्द आणि फिकट हिरव्या रंगाचे ठिपके/पट्टे पडणारा रोग.",
+        "symptoms": [
+          "तरुण पानांवर गर्द हिरवे आणि फिकट पिवळसर-हिरवे चट्टे/पट्टे दिसतात (मोझॅक नक्षी)",
+          "ही लक्षणे कोवळ्या पानांच्या देठाजवळ अधिक स्पष्ट दिसतात",
+          "उसाच्या वाढीवर विपरीत परिणाम होऊन कांड्या बारीक व आखूड होतात",
+          "तीव्र प्रादुर्भावात पाने पिवळी पडून सुकू लागतात"
+        ],
+        "causes": [
+          "शुगरकेन मोझॅक व्हायरस (SCMV)",
+          "मावा (Aphid) किडीमार्फत विषाणूचा प्रसार",
+          "रोगग्रस्त बेण्याचा वापर",
+          "शेताच्या बांधावरील तणे जी विषाणूचे वाहक असतात"
+        ],
+        "treatment": [
+          "प्रादुर्भाव दिसताच रोगट झाडे मुळासकट उपटून नष्ट करावीत",
+          "शेताचे बांध स्वच्छ ठेवावेत आणि पर्यायी तणांचे उच्चाटन करावे",
+          "बाधित उसाचा बेण्यासाठी वापर थांबवावा",
+          "स्थानिक कृषी संशोधन केंद्राचा किंवा तज्ञांचा सल्ला घ्यावा"
+        ],
+        "prevention": [
+          "रोगप्रतिकारक वाणांचा वापर करावा",
+          "केवळ निरोगी, प्रमाणित व बीजप्रक्रिया केलेले बेणे वापरावे",
+          "मावा किडीचे योग्य वेळी नियंत्रण करावे",
+          "ऊस तोडणीच्या अवजारांची निर्जंतुकीकरण प्रक्रिया करावी"
+        ],
+        "disclaimer": "विषाणूजन्य रोगावर कोणतीही रासायनिक फवारणी काम करत नाही. रोगट रोपे नष्ट करणे व निरोगी बेणे हाच उपाय आहे."
+      },
+      "hi": {
+        "name": "मोज़ेक रोग (Sugarcane Mosaic Virus)",
+        "short_description": "विषाणुजनित रोग जिससे नई पत्तियों पर गहरे व हल्के हरे/पीले रंग के चितकबरे धब्बे बनते हैं।",
+        "symptoms": [
+          "नई पत्तियों पर गहरे हरे और हल्के पीले-हरे रंग के अनियमित धब्बे (चितकबरापन)",
+          "यह लक्षण नई पत्तियों के निचले हिस्से पर सबसे अधिक स्पष्ट दिखाई देते हैं",
+          "पौधों का विकास रुक जाता है और गन्ने पतले व छोटे रह जाते हैं",
+          "गंभीर संक्रमण में पत्तियां सूखने लगती हैं"
+        ],
+        "causes": [
+          "शुगरकेन मोज़ेक वायरस (SCMV)",
+          "एफिड (माहू) कीटों द्वारा एक पौधे से दूसरे पौधे में प्रसार",
+          "संक्रमित बीज गन्ने का उपयोग",
+          "खेत की मेड़ों पर मौजूद खरपतवार जो वायरस के पोषक बनते हैं"
+        ],
+        "treatment": [
+          "संक्रमण दिखने पर शुरुआती अवस्था में ही ग्रसित पौधों को उखाड़कर नष्ट करें",
+          "खेत के आसपास की मेड़ों को खरपतवार मुक्त रखें",
+          "संक्रमित फसल से पेड़ी या बीज न लें",
+          "उचित प्रबंधन हेतु कृषि वैज्ञानिकों या कृषि रक्षा इकाई से संपर्क करें"
+        ],
+        "prevention": [
+          "मोज़ेक प्रतिरोधी किस्मों की बुवाई करें",
+          "हमेशा प्रमाणित और स्वस्थ बीज गन्ने का ही चुनाव करें",
+          "माहू कीट का समय पर नियंत्रण करें",
+          "कटाई के औजारों को स्वच्छ रखें"
+        ],
+        "disclaimer": "वायरल रोगों को कीटनाशकों से ठीक नहीं किया जा सकता। संक्रमित पौधों को हटाना और स्वस्थ बीज अपनाना ही मुख्य उपाय है।"
+      }
+    }
+  }
+}
+

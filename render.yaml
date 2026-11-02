@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: canecare-api
+    name: cancare-api
     env: python
-    buildCommand: "cd canecare-backend && pip install -r requirements.txt"
-    startCommand: "cd canecare-backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: DATABASE_URL
         sync: false
@@ -13,4 +13,3 @@ services:
         value: 60
       - key: ALLOWED_ORIGINS
         value: "*"
-
