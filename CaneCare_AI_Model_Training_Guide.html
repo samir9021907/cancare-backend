@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CaneCare AI - Sugarcane Disease ML Model Training Specification Guide</title>
+  <style>
+    @media print {
+      body { font-size: 11pt; line-height: 1.4; }
+      .no-print { display: none; }
+      .page-break { page-break-before: always; }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background-color: #ffffff;
+    }
+    .header-box {
+      border-left: 6px solid #16a34a;
+      padding: 16px 20px;
+      background: #f0fdf4;
+      border-radius: 4px;
+      margin-bottom: 30px;
+    }
+    h1 { color: #14532d; margin-top: 0; font-size: 26px; }
+    h2 { color: #15803d; border-bottom: 2px solid #bbf7d0; padding-bottom: 6px; margin-top: 32px; font-size: 20px; }
+    h3 { color: #166534; font-size: 16px; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 10px 14px; text-align: left; }
+    th { background: #f3f4f6; color: #111827; font-weight: 600; }
+    tr:nth-child(even) { background-color: #f9fafb; }
+    code { background: #f3f4f6; color: #b91c1c; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #dcfce7;
+      color: #166534;
+    }
+    .note-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .btn-print {
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .btn-print:hover { background: #15803d; }
+  </style>
+</head>
+<body>
+
+  <div class="no-print" style="text-align: right;">
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF (Ctrl + P)</button>
+  </div>
+
+  <div class="header-box">
+    <span class="badge">DEVELOPER SPECIFICATION</span>
+    <h1>🌾 CaneCare AI - Sugarcane Disease ML Model Specification</h1>
+    <p><strong>Target Application:</strong> CaneCare AI Mobile App & FastAPI Cloud Backend<br>
+    <strong>Project Scope:</strong> Image Classification for Sugarcane Foliar Diseases using Transfer Learning<br>
+    <strong>Target Runtime:</strong> Mobile (TensorFlow Lite) & Cloud Python Backend (TensorFlow / Keras / PyTorch)</p>
+  </div>
+
+  <h2>1. Executive Summary & Objective</h2>
+  <p>The developer is tasked with training a deep learning image classification model that accurately detects and diagnoses foliar diseases in sugarcane from smartphone camera photos. The trained model will be delivered as a ZIP file to be integrated into the CaneCare AI backend service.</p>
+
+  <h2>2. Target Classes & Exact Label Requirements</h2>
+  <p>The model must strictly classify input images into <strong>5 distinct classes</strong>. The exact snake_case class names below must be adhered to, as the production backend maps these directly to multilingual advisories and database IDs:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Class Index</th>
+        <th>Exact Class Name (Label)</th>
+        <th>Disease Name (Common / Marathi)</th>
+        <th>Scientific Pathogen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td><code>healthy</code></td>
+        <td>Healthy Cane (निरोगी ऊस)</td>
+        <td>N/A (No Pathogen)</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><code>red_rot</code></td>
+        <td>Red Rot (लाल कुज रोग)</td>
+        <td><em>Colletotrichum falcatum</em></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>rust</code></td>
+        <td>Sugarcane Rust (तांबेरा रोग)</td>
+        <td><em>Puccinia melanocephala</em></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>yellow_leaf</code></td>
+        <td>Yellow Leaf Disease (पिवळा पान रोग)</td>
+        <td><em>Sugarcane Yellow Leaf Virus (SCYLV)</em></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code>mosaic</code></td>
+        <td>Mosaic Virus (काणी / मोझॅक)</td>
+        <td><em>Sugarcane Mosaic Virus (SCMV)</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>⚠️ Critical Developer Note:</strong> The folder names in your dataset directory must strictly match the 5 names above (all lowercase with underscores).
+  </div>
+
+  <h2>3. Dataset & Data Augmentation Specifications</h2>
+  <ul>
+    <li><strong>Dataset Size:</strong> Recommended minimum of <strong>250 - 500 images per class</strong> (Total: 1,500 - 2,500 images). Public datasets like Kaggle's <em>"Sugarcane Leaf Disease Dataset"</em> or PlantVillage are suitable.</li>
+    <li><strong>Input Resolution:</strong> <code>224 x 224 x 3</code> (RGB).</li>
+    <li><strong>Train / Validation Split:</strong> 80% Training, 20% Validation.</li>
+    <li><strong>Data Augmentation Pipeline:</strong> Because field photos are taken in varied lighting and orientations, include:
+      <ul>
+        <li>Random Horizontal & Vertical Flip</li>
+        <li>Random Rotation (up to 25 degrees)</li>
+        <li>Random Zoom (0.15) & Shift</li>
+        <li>Random Contrast / Brightness adjustment (±15%)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>4. Recommended Model Architecture & Hyperparameters</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Specification</th>
+        <th>Justification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Base Architecture</strong></td>
+        <td><code>MobileNetV2</code> (Pre-trained on ImageNet)</td>
+        <td>Lightweight (&lt; 25MB), fast mobile CPU inference (&lt; 100ms), low RAM footprint.</td>
+      </tr>
+      <tr>
+        <td><strong>Input Shape</strong></td>
+        <td><code>(224, 224, 3)</code></td>
+        <td>Standard pre-trained vision input.</td>
+      </tr>
+      <tr>
+        <td><strong>Pooling & Head</strong></td>
+        <td>GlobalAveragePooling2D + Dropout(0.3) + Dense(5, softmax)</td>
+        <td>Prevents overfitting while retaining spatial feature representations.</td>
+      </tr>
+      <tr>
+        <td><strong>Loss Function</strong></td>
+        <td><code>CategoricalCrossentropy</code></td>
+        <td>Multi-class classification.</td>
+      </tr>
+      <tr>
+        <td><strong>Optimizer</strong></td>
+        <td><code>Adam(learning_rate=1e-4)</code></td>
+        <td>Stable convergence for fine-tuning.</td>
+      </tr>
+      <tr>
+        <td><strong>Target Accuracy</strong></td>
+        <td>Validation Accuracy &ge; <strong>92%</strong></td>
+        <td>High confidence diagnostics for farmers.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Complete Ready-to-Run Training Script (Python / TensorFlow)</h2>
+  <p>The developer can run this code directly in <strong>Google Colab</strong> (with free T4 GPU enabled):</p>
+
+  <pre><code>import os
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout
+from tensorflow.keras.models import Model
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+
+# 1. Dataset Configuration
+IMG_SIZE = (224, 224)
+BATCH_SIZE = 32
+DATASET_DIR = "sugarcane_dataset/" # Must contain healthy/, red_rot/, rust/, yellow_leaf/, mosaic/
+
+train_datagen = ImageDataGenerator(
+    rescale=1.0/255.0,
+    rotation_range=25,
+    width_shift_range=0.15,
+    height_shift_range=0.15,
+    shear_range=0.15,
+    zoom_range=0.15,
+    horizontal_flip=True,
+    vertical_flip=True,
+    validation_split=0.20
+)
+
+train_generator = train_datagen.flow_from_directory(
+    DATASET_DIR,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='training',
+    shuffle=True
+)
+
+val_generator = train_datagen.flow_from_directory(
+    DATASET_DIR,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='validation',
+    shuffle=False
+)
+
+# 2. Build MobileNetV2 Transfer Learning Model
+base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+base_model.trainable = False # Freeze base weights for initial training
+
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
+x = Dropout(0.3)(x)
+predictions = Dense(5, activation='softmax')(x)
+
+model = Model(inputs=base_model.input, outputs=predictions)
+
+model.compile(
+    optimizer=Adam(learning_rate=1e-4),
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+# 3. Callbacks & Training
+callbacks = [
+    ModelCheckpoint('canecare_model.h5', monitor='val_accuracy', save_best_only=True, verbose=1),
+    EarlyStopping(monitor='val_loss', patience=6, restore_best_weights=True),
+    ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=3, verbose=1)
+]
+
+print("🚀 Starting Initial Training (Frozen Base)...")
+history = model.fit(
+    train_generator,
+    epochs=15,
+    validation_data=val_generator,
+    callbacks=callbacks
+)
+
+# 4. Optional Fine-Tuning (Unfreeze top 30 layers)
+base_model.trainable = True
+for layer in base_model.layers[:-30]:
+    layer.trainable = False
+
+model.compile(optimizer=Adam(learning_rate=1e-5), loss='categorical_crossentropy', metrics=['accuracy'])
+print("🚀 Fine-Tuning Top Layers...")
+model.fit(train_generator, epochs=10, validation_data=val_generator, callbacks=callbacks)
+
+# 5. Convert to TensorFlow Lite (.tflite) for Mobile
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_model = converter.convert()
+
+with open('canecare_model.tflite', 'wb') as f:
+    f.write(tflite_model)
+
+print("🎉 Model successfully exported: canecare_model.h5 and canecare_model.tflite")
+</code></pre>
+
+  <h2>6. Deliverables Required in the Output ZIP</h2>
+  <p>The developer should package and deliver a single ZIP file containing:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>canecare_model.h5</code> (or <code>.keras</code>)</td>
+        <td>The primary Keras model weights for the cloud backend.</td>
+      </tr>
+      <tr>
+        <td><code>canecare_model.tflite</code></td>
+        <td>Quantized mobile inference model for offline app scanning.</td>
+      </tr>
+      <tr>
+        <td><code>classes.json</code></td>
+        <td>JSON map of class indices to labels: <code>{"0": "healthy", "1": "mosaic", "2": "red_rot", "3": "rust", "4": "yellow_leaf"}</code></td>
+      </tr>
+      <tr>
+        <td><code>metrics_summary.txt</code></td>
+        <td>Final validation accuracy, confusion matrix, and training report.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>7. Integration Instructions (For CaneCare Team)</h2>
+  <p>Once the ZIP file is delivered:</p>
+  <ol>
+    <li>Extract the files directly into <code>canecare-backend/models/</code>.</li>
+    <li>When CaneCare AI backend starts, <code>ml_service.py</code> automatically detects <code>canecare_model.h5</code> and switches from <code>MOCK</code> mode to <code>REAL</code> AI inference mode with zero code modification.</li>
+  </ol>
+
+  <hr style="margin-top: 40px; border: 0; border-top: 1px solid #e5e7eb;">
+  <p style="text-align: center; color: #6b7280; font-size: 13px;">
+    CaneCare AI &copy; 2026 &bull; Sugarcane Disease Intelligence System &bull; Confidential Developer Document
+  </p>
+
+</body>
+</html>
