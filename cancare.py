@@ -1,14 +1,31 @@
 import os
 import sys
+import multiprocessing
 
-# Root runner that delegates to canecare-backend
-current_dir = os.path.dirname(os.path.abspath(__file__))
-backend_dir = os.path.join(current_dir, "canecare-backend")
-os.chdir(backend_dir)
+# Add backend directory and its venv packages to sys.path
+backend_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "canecare-backend")
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
 
-runner = os.path.join(backend_dir, "cancare.py")
-with open(runner, "r", encoding="utf-8") as f:
-    code = f.read()
+venv_site = os.path.join(backend_dir, "venv", "Lib", "site-packages")
+if os.path.exists(venv_site) and venv_site not in sys.path:
+    sys.path.insert(0, venv_site)
 
-exec(compile(code, runner, "exec"), {"__name__": "__main__", "__file__": runner})
+if __name__ == "__main__":
+    multiprocessing.freeze_support()
+    os.chdir(backend_dir)
+    
+    try:
+        import uvicorn
+    except ImportError as e:
+        print("Error: Could not load dependencies:", e)
+        print("Please activate the virtual environment:")
+        print("  .\\canecare-backend\\venv\\Scripts\\activate")
+        sys.exit(1)
 
+    print("=" * 60)
+    print("🌾 CaneCare AI Backend Server Starting...")
+    print("👉 API Documentation (Swagger): http://127.0.0.1:8000/docs")
+    print("👉 Health Check:                http://127.0.0.1:8000/api/v1/health")
+    print("=" * 60)
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)

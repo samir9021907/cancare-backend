@@ -1,5 +1,6 @@
 import os
 import sys
+import multiprocessing
 
 # Ensure canecare-backend directory is in sys.path
 backend_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,10 +21,10 @@ except ImportError as e:
     sys.exit(1)
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     print("=" * 60)
     print("🌾 CaneCare AI Backend Server Starting...")
     print("👉 API Documentation (Swagger): http://127.0.0.1:8000/docs")
     print("👉 Health Check:                http://127.0.0.1:8000/api/v1/health")
     print("=" * 60)
     uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
-
