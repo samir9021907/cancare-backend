@@ -1,11 +1,13 @@
 """
 Database Models Module.
 
-Defines the tables stored in SQLite using SQLAlchemy ORM with UUID primary keys:
-- User: Stores registered users, credentials, role, and preferred language.
+Defines the tables stored in SQLite/PostgreSQL using SQLAlchemy ORM with UUID primary keys:
+- User: Stores registered users, credentials, role, language, and farm details.
 - Scan: Stores leaf image uploads performed by a user.
 - Prediction: Stores ML model diagnosis, confidence, and top-3 probabilities.
 - Feedback: Stores user feedback on diagnosis accuracy.
+- AppFeedback: Stores general app feedback, bug reports, and suggestions.
+- AdvisoryQuestion: Stores community crop questions and expert answers.
 """
 
 from datetime import datetime, timezone
@@ -44,6 +46,16 @@ class User(Base):
     hashed_password = Column(String(255), nullable=False)
     language = Column(String(10), default="en", nullable=False)  # 'en', 'mr', 'hi'
     role = Column(String(20), default="farmer", nullable=False)  # 'farmer', 'officer', 'admin'
+    
+    # Farmer Profile Details
+    region = Column(String(100), nullable=True)
+    village = Column(String(100), nullable=True)
+    avatar_path = Column(String(255), nullable=True)
+    farm_size = Column(String(50), nullable=True)
+    sugarcane_variety = Column(String(100), nullable=True)
+    irrigation_type = Column(String(100), nullable=True)
+    planting_season = Column(String(100), nullable=True)
+    
     created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
 
     # Relationships: One user can have multiple leaf scans
@@ -91,3 +103,29 @@ class Feedback(Base):
 
     # Relationship back to scan
     scan = relationship("Scan", back_populates="feedback")
+
+
+class AppFeedback(Base):
+    __tablename__ = "app_feedback"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
+    name = Column(String(100), nullable=False)
+    email = Column(String(255), nullable=False)
+    feedback_type = Column(String(100), nullable=False)
+    message = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
+
+
+class AdvisoryQuestion(Base):
+    __tablename__ = "advisory_questions"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
+    author_name = Column(String(100), nullable=False)
+    title = Column(String(255), nullable=False)
+    description = Column(Text, nullable=False)
+    category = Column(String(100), nullable=False)
+    status = Column(String(50), default="तज्ञांच्या उत्तराची प्रतीक्षा (Pending)", nullable=False)
+    expert_answer = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)

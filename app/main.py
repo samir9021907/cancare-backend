@@ -95,7 +95,7 @@ def health_check():
 # ---------------------------------------------------------------------------
 # Include API Routers
 # ---------------------------------------------------------------------------
-from app.routers import auth, users, predict, diseases, history, feedback, shops
+from app.routers import auth, users, predict, diseases, history, feedback, shops, market, advisory, notifications
 
 app.include_router(auth.router)
 app.include_router(users.router)
@@ -104,6 +104,9 @@ app.include_router(diseases.router)
 app.include_router(history.router)
 app.include_router(feedback.router)
 app.include_router(shops.router)
+app.include_router(market.router)
+app.include_router(advisory.router)
+app.include_router(notifications.router)
 
 
 @app.get("/", include_in_schema=False)

@@ -45,6 +45,16 @@ class UserResponse(BaseModel):
     phone: Optional[str] = None
     language: str
     role: str
+    
+    # Farmer Profile Details
+    region: Optional[str] = None
+    village: Optional[str] = None
+    avatar_path: Optional[str] = None
+    farm_size: Optional[str] = None
+    sugarcane_variety: Optional[str] = None
+    irrigation_type: Optional[str] = None
+    planting_season: Optional[str] = None
+
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
@@ -61,6 +71,15 @@ class UserUpdateRequest(BaseModel):
     full_name: Optional[str] = Field(None, min_length=2, max_length=100)
     phone: Optional[str] = Field(None, max_length=20)
     language: Optional[str] = Field(None, pattern="^(en|mr|hi)$")
+    
+    # Farmer Profile Details
+    region: Optional[str] = None
+    village: Optional[str] = None
+    avatar_path: Optional[str] = None
+    farm_size: Optional[str] = None
+    sugarcane_variety: Optional[str] = None
+    irrigation_type: Optional[str] = None
+    planting_season: Optional[str] = None
 
 
 # ---------------------------------------------------------------------------
@@ -189,7 +208,7 @@ class ScanDetailResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Feedback Schemas
+# Feedback Schemas (Scan Diagnosis + General App)
 # ---------------------------------------------------------------------------
 class FeedbackCreateRequest(BaseModel):
     scan_id: str
@@ -209,6 +228,148 @@ class FeedbackResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 
+class AppFeedbackRequest(BaseModel):
+    name: str = Field(..., min_length=2, max_length=100)
+    email: EmailStr
+    feedback_type: str = Field(..., max_length=100)
+    message: str = Field(..., min_length=5, max_length=2000)
+
+
+class AppFeedbackResponse(BaseModel):
+    id: str
+    name: str
+    email: str
+    feedback_type: str
+    message: str
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+# ---------------------------------------------------------------------------
+# Advisory Questions Schemas
+# ---------------------------------------------------------------------------
+class AdvisoryQuestionCreate(BaseModel):
+    title: str = Field(..., min_length=5, max_length=255)
+    description: str = Field(..., min_length=10, max_length=2000)
+    category: str = Field(..., max_length=100)
+
+
+class AdvisoryQuestionResponse(BaseModel):
+    id: str
+    author_name: str
+    title: str
+    description: str
+    category: str
+    status: str
+    expert_answer: Optional[str] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+# ---------------------------------------------------------------------------
+# Sugarcane Market & Mandi Rates Schemas
+# ---------------------------------------------------------------------------
+class DailyMarketRateItem(BaseModel):
+    date: str
+    date_label_mr: str
+    date_label_en: str
+    day_name_mr: str
+    day_name_en: str
+    avg_price: float
+    min_price: float
+    max_price: float
+    change: float
+    arrival_tonnes: int
+    recovery_percent: float
+
+
+class MonthlyMarketRateItem(BaseModel):
+    month_label_mr: str
+    month_label_en: str
+    avg_price: float
+    min_price: float
+    max_price: float
+
+
+class SugarcaneMandiItem(BaseModel):
+    id: str
+    name_mr: str
+    name_en: str
+    district_mr: str
+    district_en: str
+    base_recovery: float
+    current_avg_price: float
+    min_price: float
+    max_price: float
+    daily_change: float
+    today_arrival_tonnes: int
+    daily_rates: List[DailyMarketRateItem]
+    monthly_rates: List[MonthlyMarketRateItem]
+    active_factories: List[str]
+
+
+class MarketRatesResponse(BaseModel):
+    national_frp_base_rate: float
+    base_recovery_rate: float
+    premium_per_point_recovery: float
+    updated_at: str
+    mandis: List[SugarcaneMandiItem]
+
+
+# ---------------------------------------------------------------------------
+# Notifications Schemas
+# ---------------------------------------------------------------------------
+class NotificationItem(BaseModel):
+    id: str
+    title: str
+    title_marathi: str
+    title_hindi: str
+    body: str
+    body_marathi: str
+    body_hindi: str
+    category: str  # "tips", "weather", "reminder", "market", "alert"
+    importance: str  # "normal", "high", "urgent"
+    timestamp: str
+    is_read: bool = False
+    action_route: Optional[str] = None
+    action_label: Optional[str] = None
+    action_label_marathi: Optional[str] = None
+
+
+class NotificationsResponse(BaseModel):
+    total: int
+    unread_count: int
+    notifications: List[NotificationItem]
+
+
+# ---------------------------------------------------------------------------
+# Agri Product Schemas
+# ---------------------------------------------------------------------------
+class RecommendedProductItem(BaseModel):
+    id: str
+    disease_id: str
+    name: str
+    marathi_name: str
+    category_tag: str
+    marathi_category_tag: str
+    pack_size: str
+    verified_mrp: float
+    purpose: str
+    purpose_marathi: str
+    image_asset: str
+    active_ingredient: str
+    cibrc_registration: str
+    dosage_sugarcane: str
+    dosage_sugarcane_marathi: str
+
+
+class AgriProductListResponse(BaseModel):
+    disease_id: str
+    products: List[RecommendedProductItem]
+
+
 # ---------------------------------------------------------------------------
 # Health Check Schema
 # ---------------------------------------------------------------------------
@@ -216,4 +377,3 @@ class HealthResponse(BaseModel):
     status: str
     app_version: str
     model_mode: str  # "real" or "mock"
-

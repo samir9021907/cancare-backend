@@ -5,6 +5,7 @@ Handles:
 1. Direct password hashing & verification using the standard `bcrypt` library (no passlib).
 2. JWT token generation & validation using `PyJWT`.
 3. Dependency `get_current_user` for protecting endpoints using FastAPI's `HTTPBearer`.
+4. Dependency `get_optional_user` for endpoints that work both authenticated and anonymously.
 """
 
 from datetime import datetime, timedelta, timezone
@@ -21,6 +22,7 @@ from app import models
 
 # Use HTTPBearer for clean Swagger UI authorization (just paste the token)
 security_scheme = HTTPBearer(auto_error=True)
+optional_security_scheme = HTTPBearer(auto_error=False)
 
 
 # ---------------------------------------------------------------------------
@@ -122,3 +124,22 @@ def get_current_user(
 
     return user
 
+
+def get_optional_user(
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(optional_security_scheme),
+    db: Session = Depends(get_db)
+) -> Optional[models.User]:
+    """
+    Optional authentication dependency.
+    Returns the User object if a valid Bearer token is provided, otherwise None.
+    """
+    if not credentials or not credentials.credentials:
+        return None
+    try:
+        payload = decode_access_token(credentials.credentials)
+        user_id = payload.get("sub")
+        if not user_id:
+            return None
+        return db.query(models.User).filter(models.User.id == str(user_id)).first()
+    except Exception:
+        return None
